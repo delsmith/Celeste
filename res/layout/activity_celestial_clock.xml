@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.antares.celeste.CelestialClock" >
+
+    <TextView
+        android:id="@+id/locationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/location_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/localTimeLabel"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/locationLabel"
+        android:layout_marginTop="20dp"
+        android:text="@string/local_time_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/utcTimeLabel"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sidTimeLabel"
+        android:layout_below="@+id/sidTimeText"
+        android:layout_marginTop="14dp"
+        android:text="@string/utc_time_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/sidTimeLabel"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/localTimeText"
+        android:layout_marginTop="14dp"
+        android:text="@string/sid_time_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/solarTimeLabel"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/utcTimeLabel"
+        android:layout_below="@+id/utcTimeText"
+        android:layout_marginTop="18dp"
+        android:text="@string/solar_time_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/localTimeText"
+        android:layout_alignTop="@+id/locationLabel"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/locationLabel"
+        android:gravity="right"
+        android:text="Melbourne, Aus"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/sidTimeText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/locationText"
+        android:layout_alignTop="@+id/sidTimeLabel"
+        android:gravity="right"
+        android:text="23:59:59"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/localTimeText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/locationText"
+        android:layout_alignTop="@+id/localTimeLabel"
+        android:gravity="right"
+        android:text="10:11:12"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/utcTimeText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/locationText"
+        android:layout_alignTop="@+id/utcTimeLabel"
+        android:gravity="right"
+        android:text="00:11:12"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/solarTimeText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/locationText"
+        android:layout_alignTop="@+id/solarTimeLabel"
+        android:gravity="right"
+        android:text="13:24:56"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
