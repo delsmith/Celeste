@@ -47,15 +47,58 @@ public class CelestialClock extends Activity {
 	private TextView utcTimeText;
 	private TextView solarTimeText;
 	private long tzOffset;
-	private double longitude = 144.97;
+	private double longitude = 145.0;
 	private long solarOffset = (long)(240000 * longitude);   // seconds to make solar time from UTC
 
+/*** javascript code
+var epochHour = 262980;     // 1.Jan.2000 12:00 UT as Unix time in hours.
+var epochST = 6.697374558   // GMST at epoch Time
+var deltaT = 0.002737909350795;
+function getLAST(d,l){
+
+     * Local Apparent Sidereal Time (for Date 'd' at Longitude 'l')
+     * ref: http://aa.usno.navy.mil/faq/docs/GAST.php
+     *
+     * Given below is a simple algorithm for computing apparent sidereal time
+     * to an accuracy of about 0.1 second, equivalent to about 1.5 arcseconds of sky.
+     *
+     * The algorithm uses an epoch of Jan 1, 2000 12:00 UT
+     *
+     * It derives two values representing the current time
+     *      epDays  is the number of (mean solar) days from the epoch to 0000 UT of the current day
+     *              (always has a fraction of .5)
+     *      utHours is the number of hours since 0000 UT
+     *
+     * Then the Greenwich mean sidereal time in hours is
+     *      GMST = 6.697374558 + 0.06570982441908 x epDays + 1.00273790935 x utHours
+     * Local Apparent Sidereal Time is found by adding 4 minutes per degree of East longitude (1 hour per 15 degrees)
+     *      LAST = GMST + longitude / 15
+     * A modulus operation is applied to yield : 0.0 <= LAST < 24.0
+     *
+     * In simple terms,
+     *      epochHour = 262980;         // Epoch time (1.Jan.2000 12:00 UT) as Unix time in hours.
+     *      epochST = 6.697374558       // GMST at epoch Time
+     *      deltaT = 0.002737909350795; // ( Sidereal hour - Solar Hour) (as Sidereal hours)
+     * then
+     *      let nowHour be the current UT time in hours
+     *      GMST = epochST + (nowHour-epochHour)*deltaT + nowHour modulo 24
+     *      LAST = (GMST + longitude/15) modulo 24
+
+     nowHour = d.getTime()/3600000.;     // current Unix UT time in hours
+     LAST = ( epochST + deltaT*(nowHour - epochHour) + nowHour + l/15 ) % 24;
+     // Format this as HH:MM:SS
+     r = new Date(LAST*3600000);
+     return r.toUTCString().substr(17,8);
+*/
 	private long sidereal( long utcMilliseconds, double longitude ) {
 		// compute sidereal time at the given longitude
-		long day = 205;
-		long utcShift = (long) ((366.25/365.25) * ((day-264) % 365 ) * MSEC_PER_DAY);
-		long sid = (utcMilliseconds + utcShift + solarOffset) % MSEC_PER_DAY;
-		return sid;
+
+		double epochTime = 262980;
+		double epochSidTime = 6.697374558;
+		double deltaT = 0.002737909350795;
+		double now = (double)utcMilliseconds / 3600000.;
+		
+		return (long) (3600000 * ((epochSidTime + deltaT*(now - epochTime) + now + longitude/15.) % 24.));
 	}
 	
 	@SuppressLint("DefaultLocale")
