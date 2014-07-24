@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/locationLabel"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="42dp"
         android:text="@string/local_time_lbl"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -31,20 +31,10 @@
         android:id="@+id/utcTimeLabel"
         android:layout_width="96dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sidTimeLabel"
-        android:layout_below="@+id/sidTimeText"
-        android:layout_marginTop="14dp"
+        android:layout_alignLeft="@+id/localTimeLabel"
+        android:layout_below="@+id/localTimeLabel"
+        android:layout_marginTop="28dp"
         android:text="@string/utc_time_lbl"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/sidTimeLabel"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/localTimeText"
-        android:layout_marginTop="14dp"
-        android:text="@string/sid_time_lbl"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -52,16 +42,25 @@
         android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/utcTimeLabel"
-        android:layout_below="@+id/utcTimeText"
-        android:layout_marginTop="18dp"
+        android:layout_below="@+id/utcTimeLabel"
+        android:layout_marginTop="42dp"
         android:text="@string/solar_time_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/sidTimeLabel"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/solarTimeLabel"
+        android:layout_below="@+id/solarTimeLabel"
+        android:layout_marginTop="28dp"
+        android:text="@string/sid_time_lbl"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/locationText"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/localTimeText"
         android:layout_alignTop="@+id/locationLabel"
         android:layout_marginLeft="16dp"
         android:layout_toRightOf="@+id/locationLabel"
@@ -70,22 +69,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/sidTimeText"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/locationText"
-        android:layout_alignTop="@+id/sidTimeLabel"
-        android:gravity="right"
-        android:text="23:59:59"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/localTimeText"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/locationText"
         android:layout_alignTop="@+id/localTimeLabel"
         android:gravity="right"
+        android:hint="Time at this location, with DST if active"
         android:text="10:11:12"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -96,6 +86,7 @@
         android:layout_alignRight="@+id/locationText"
         android:layout_alignTop="@+id/utcTimeLabel"
         android:gravity="right"
+        android:hint="Current time at Greenwich UK"
         android:text="00:11:12"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -106,7 +97,19 @@
         android:layout_alignRight="@+id/locationText"
         android:layout_alignTop="@+id/solarTimeLabel"
         android:gravity="right"
+        android:hint="Solar time is 12:00 at Local Solar Noon"
         android:text="13:24:56"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/sidTimeText"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/locationText"
+        android:layout_alignTop="@+id/sidTimeLabel"
+        android:gravity="right"
+        android:hint="Sidereal Time is the Right Acension on the Meridian"
+        android:text="23:59:59"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

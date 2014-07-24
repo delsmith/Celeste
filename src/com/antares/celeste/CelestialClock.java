@@ -12,23 +12,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-/*
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
-import android.text.format.Time;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import android.content.IntentSender;
-import android.content.SharedPreferences;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.os.AsyncTask;
-import android.widget.ProgressBar;
-*/
 
-@SuppressLint("SimpleDateFormat")
+/**
+ * 
+ * @author dels
+ *
+ * this app tells an astronomical observer the current solar and sidereal time
+ * which simplifies the task of calculating Hour Angle to point a telescope
+ * 
+ * TODO: initialise the location using Android location services, convert to an address
+ * TODO: let the user specify a location other than the current place
+ * TODO: let the user set a fixed time and date instead of clock time
+ * TODO: add an activity that enables the user to calculate Hour Angle from RA
+ * TODO: ensure that the device is useful with no network and GPS off
+ * 
+ */
 public class CelestialClock extends Activity {
 
 	// A request to connect to Location Services
